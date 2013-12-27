@@ -1,0 +1,25 @@
+#include<stdio.h>
+#include<conio.h>
+void main()
+{
+        int toplam=0,i,j;
+        for(i=1; i<1000; i++)
+        {
+                toplam=0;
+                for(j=1; j<i; j++)
+                {
+                        if(i%j==0) // Eğer i'nin j'ye bölümünden kalan sıfır'a eşit ise if’in içine gir.
+
+                        {
+                                toplam=toplam + j;
+                        }
+                }
+                if(toplam==i)
+                {
+                        printf("%d\n",toplam);
+                }
+
+
+        }
+        getch();
+}
