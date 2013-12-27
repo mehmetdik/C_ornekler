@@ -1,1 +1,30 @@
-a
+#include<stdio.h>
+#include<conio.h>
+void main()
+{
+        int sayi,i,j,toplam,say;
+        toplam=0;
+        
+        printf("Bir sayi giriniz :");
+        scanf("%d",&sayi);
+        for(i=2; i<=sayi; i++) //Bu kodlar sayının asal olup olmadığını araştırır
+        {say=0;
+                for(j=2; j<i; j++)
+                {   
+                        if(i%j==0)  // i’nin j’ye bölümünden kalan 0 ise if’in içine girer.İçindeki kodu uygular.
+                        {
+                                say=1;
+                        }
+                
+                
+                }if(say==0) //Eğer say eşittir 0 ise if’in içine girer
+                {
+                        printf("%d\n",i);
+                        toplam=toplam+1;
+                        
+                        
+                }
+        }
+        printf("Toplma %d tane asal sayi vardir",toplam);
+        getch();
+}
