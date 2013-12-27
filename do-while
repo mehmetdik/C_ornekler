@@ -1,0 +1,26 @@
+#include<stdio.h>
+#include<conio.h>
+#include<stdlib.h>
+
+void main()
+{
+      system("color 9F");
+
+	int Anufus,Bnufus,yil=0;
+	Anufus=10000000;
+	Bnufus=40000000;
+
+	do //do’nun içine girer kontrol eder daha sonra while gider while’in içini kontrol eder.
+	{
+	
+	Anufus=Anufus+(Anufus/4); //A ülkesinin  1 yıl geçtikten sonraki nüfusunu hesaplar
+	Bnufus=Bnufus+(Bnufus*12)/100; // B ülkesinin 1 yıl geçtikten sonraki nüfusunu hesaplar
+	yil=yil+1; //Döngü oldukça yıla 1 ekler
+	}
+	while(Bnufus>Anufus);
+	
+	printf("%d Yil onra A ulkesinin nufusu B ulkesinin nufusunu gecer.",yil);
+	
+	getch();
+	
+}
