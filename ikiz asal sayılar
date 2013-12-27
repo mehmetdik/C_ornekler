@@ -1,0 +1,49 @@
+#include<stdio.h>
+#include<conio.h>
+void main()
+{
+        int i,j,say,b,say2;
+
+
+        for(i=99; i>1; i--)
+        {
+                say=0;
+                for(j=i-1; 1<j; j--)
+                {   
+                        if(i%j==0)
+                        {
+                                say=1;   
+
+                        }
+
+
+                }
+                if(say==0)
+                {
+                        //Buraya kadar olan kısımda sayının asal olup olmadığını kontrol ediyor.Asalsa  if'İN içine girer.
+                        b=i-2;//b yukardn gelen i asal sayısının iki eksigi. Asagıda tekrardan asal bulma formulu yapıyoruz yani i=73 asal oldugunu buldk simdide b=73-2 asal mı diye kontrol edicek. 
+                        say2=0;
+                        for(j=b-1; 1<j; j--)
+                        {   
+                                if(b%j==0)
+                                {
+                                        say2=1;   
+
+                                }
+                                
+
+                        }
+                        if(say2==0)
+                        {
+                                //eger buraya girerse b de yani (i-2) de asal sayıdır. Bizden istedigi de zatn arasanda iki fark olan asal sayılarn en buyugu.
+                                printf("ikiz en buyuk sayilar = %d ve %d",i,b);//burdada en yukardan gelen ilk asal sayıyı yani (i) yi sonrada ikincisi yani iki eksigi olan (b) yi yazdırıyoruz.
+                                break;
+
+
+                        }
+
+
+                }
+        }
+        getch();
+}
