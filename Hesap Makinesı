@@ -1,0 +1,56 @@
+#include <stdio.h>
+#include <conio.h>
+ 
+void main()
+{
+   int sayi1,toplam,fark,carpim,karesi,sayi2;
+   float bolme;
+   int c,d;
+   printf("Bir sayi giriniz:");
+   scanf("%d",&sayi1);
+   printf("Bir sayi daha giriniz:");
+   scanf("%d",&sayi2);
+   printf("1-Toplam\n2-Fark\n3-Carpim\n4-Bolum\n5-Karesini Al\nSecim:");
+   scanf("%d",&c);
+   switch(c)
+   {
+   case 1:
+      toplam=sayi1+sayi2;
+      printf("Toplam=%d\n",toplam);
+       break;
+   case 2:
+      fark=sayi1-sayi2;
+      printf("Fark=%d\n",fark);
+       break;
+   case 3:
+      carpim=sayi1*sayi2;
+      printf("Carpim=%d\n",carpim);
+       break;
+   case 4:
+      bolme=(float)sayi1/sayi2;
+      printf("Bolum=%f\n",bolme);
+       break;
+    case 5:
+        printf("Hangi sayinin karesi alinsin\n");
+        printf("1- %d icin\n",sayi1);
+        printf("2- %d icin\n",sayi2);
+        scanf("%d",&d);
+        switch(d)
+        {
+        case 1:
+            karesi = sayi1 * sayi1;
+            printf("%d nin karesi %d\n",sayi1,karesi);
+            break;
+        case 2:
+            karesi = sayi2 * sayi2;
+            printf("%d nin karesi %d\n",sayi2,karesi);
+            break;
+        }
+        break;
+    default:
+        printf("Lutfen 1'den 5'e kadar bir sayi giriniz.");
+        break;
+    }
+   getch();
+}
+ 
