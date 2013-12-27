@@ -1,0 +1,56 @@
+#include<stdio.h>
+#include<conio.h>
+#include <stdlib.h>
+#include<windows.h>
+void main()
+{
+	int saat,tucret,adet,sifre,kullanici;
+
+	char icecekturu = ' ';
+	printf("KULANICI ADI:");
+	scanf("%d",&kullanici);
+	printf("SiFRE:");
+	scanf("%d",&sifre);
+
+	if(kullanici==1 && sifre==1234)
+	{
+
+
+		printf("Cafemizde ictiginiz icecegi giriniz[cay:c,su:s,kahve:k]=");
+		scanf("%s",&icecekturu);
+		system("CLS");		
+		printf("ictiginiz icecegin adetini giriniz:");
+		scanf("%d",&adet);
+		system("CLS");
+		printf("Cafemizde kaldiginiz sureyi dk cinsinden giriniz:");
+		scanf("%d",&saat);
+		system("CLS");
+
+		if (icecekturu=='c')
+		{
+			tucret=(25*adet)+saat;
+			printf("Toplam Borcunuz:%d TL",tucret);
+			printf("\n\n\n");
+			printf("\t\tBizi Sesctiginiz icin Tesekkurler...");
+		}
+		else if(icecekturu=='s')
+		{
+			tucret=(50*adet)+saat;
+			printf("Toplam Borcunuz:%d TL",tucret);
+			printf("\n\n\n");
+			printf("\t\tBizi Sesctiginiz icin Tesekkurler...");
+		}
+		else if(icecekturu=='k')
+		{
+			tucret=(75*adet)+saat;
+			printf("Toplam Borcunuz:%d TL",tucret);
+			printf("\n\n\n");
+			printf("\t\tBizi Sesctiginiz icin Tesekkurler...");
+		}
+	}
+
+	else
+		printf("Kullanici adini veya sifrenizi yanlis girdiniz...");
+
+	getch();
+}
