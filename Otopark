@@ -1,0 +1,77 @@
+#include <stdio.h>
+#include <conio.h>
+#include <stdlib.h>
+#include <Windows.h>
+void aracGiris(FILE*);
+int ciro(FILE*);  
+int zaman_farkı(int x,int y,int z,int t);
+struct o{
+	char plaka[10];
+	int girisSa;
+	int girisDk;
+	int cikisSa;
+	int cikisDk;
+}oto;
+FILE *otopark;
+int main(){
+	int secim;
+	for(;;){
+		system("cls");
+		printf("\t1 == Arac girisi \n");
+		printf("\t2 == Gunluk ciro \n");
+		printf("\t3 == Cikis\n");
+		printf("\n\t\t\t\t\tSeciminizi giriniz: ");
+		scanf("%d",&secim);
+		if(secim==1)
+			aracGiris(otopark);
+		else if(secim==2){
+			printf("Toplam ciro = %d",ciro(otopark));
+			Sleep(3000);
+		}
+		else if(secim==0)
+			exit(1);
+	}
+	getch();
+}
+
+void aracGiris(FILE *fptr){
+	fptr = fopen("park.txt","a");
+	printf("Plakayi giriniz: ");
+	scanf("%s",&oto.plaka);
+	printf("Arac giris saatini giriniz: ");
+	scanf("%d%d",&oto.girisSa,&oto.girisDk);
+	printf("Arac cikis saatini giriniz: ");
+	scanf("%d%d",&oto.cikisSa,&oto.cikisDk);
+
+	fprintf(fptr,"%s %d%d %d%d\n",oto.plaka,oto.girisSa,oto.girisDk,oto.cikisSa,oto.cikisDk);
+	fclose(fptr);
+} 
+
+int ciro(FILE *fptr){
+	int toplam=0,i=0,dk,sa;
+	int dizi[BUFSIZ];
+	fptr = fopen("park.txt","r+");
+	while(fscanf(fptr,"%s %d%d %d%d",&oto.plaka,&oto.girisSa,&oto.girisDk,&oto.cikisSa,&oto.cikisDk) != EOF){
+		i++;
+		sa = zaman_farkı(oto.girisSa,oto.girisDk,oto.cikisSa,oto.cikisDk);
+		if (sa <= 1)
+			dizi[i]=2;
+		else if(sa >1 && sa <4)
+			dizi[i]=4;
+		else if(sa >=4 && sa<8)
+			dizi[i]=6;
+		else if (sa>=8 && sa<24)
+			dizi[i]=8;
+	}
+	fclose(fptr);
+	for(int j=1 ; j<i ; j++){
+		toplam += dizi[j];
+	}
+	return toplam;
+}
+int zaman_farkı(int x,int y,int z,int t){
+	float zamanfarki;
+
+	zamanfarki=(abs(((z*60)+t)-((x*60)+y)))/60;
+	return zamanfarki;
+}
