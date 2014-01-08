@@ -1,0 +1,63 @@
+#include <stdio.h>
+#include <conio.h>
+#include <Windows.h>
+int karakter(char[10]);
+int kelime(char[10]);
+int cumle(char[10]);
+FILE *dosya;
+
+int main(){	
+	char dosya_ismi[20];
+	printf("\nDosyaismini sonuna '.txt' koymak sartiyla gir: "); 
+	gets(dosya_ismi);
+	
+	printf("\n\n Karakter sayisi : %d",karakter(dosya_ismi));
+	printf("\n\n Kelime sayisi : %d",kelime(dosya_ismi));
+	printf("\n\n Cumle sayisi : %d",cumle(dosya_ismi));
+	getch();
+}
+int karakter(char x[10]){
+	int sayac1=0;
+	char a;
+	dosya=fopen(x,"r+");
+	if(dosya==NULL)
+		printf("Dosya bulunamadi.");
+	else{
+		while(fscanf(dosya,"%c",&a) != EOF){
+			sayac1++;
+		}
+		fclose(dosya);
+	}
+	return sayac1;
+}
+int kelime(char x[10]){
+	int sayac2=0;
+	char b[20];
+	dosya=fopen(x,"r+");
+	if(dosya==NULL)
+		printf("Dosya bulunamadi.");
+	else{
+		while(fscanf(dosya,"%s ",&b) != EOF){
+			sayac2++;
+		}
+		fclose(dosya);
+	}
+	return sayac2;
+}
+int cumle(char x[10]){
+	int sayac3=0;
+	char d[20];
+dosya=fopen(x,"r+");
+	if(dosya==NULL)
+		printf("Dosya bulunamadi.");
+	else{
+		while(fscanf(dosya,"%s",&d) != EOF){
+			for(int i=0 ; i <20 ; i++){
+				if(d[i]=='.')
+					sayac3++;
+			}
+		}
+		fclose(dosya);
+	}
+	return sayac3;
+}
