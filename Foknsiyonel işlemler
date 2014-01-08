@@ -1,0 +1,70 @@
+#include<stdio.h>
+#include<conio.h>
+float bir(int);
+int iki(int);
+int üç(int);
+
+int sayi;
+
+
+void main()
+{
+	
+	printf("Sayi:");
+	scanf("%d",&sayi);
+	
+	if (sayi>=20)
+	{
+		 
+		printf("Sonuc=%f",bir(sayi));
+	}
+	else if (sayi>10 && sayi<20)
+		{ 
+			
+			printf("Sonuc=%d",iki(sayi));
+		}
+	else if (sayi<=10)
+	{
+		 	
+		 printf("Sonuc=%d",üç(sayi));
+	}
+	
+	
+	getch();
+}
+
+
+float bir(int x)
+{
+	float sonuc=0;
+	for (float i = 2; i <=(2*x) ; i++)
+	{
+		sonuc=(1/i)+sonuc;
+		i++;
+		
+	}
+	return sonuc;
+}
+
+int iki(int x)
+	{
+		int islem=0;
+		x=2*x+1;
+		for (int j = 1; j <=x; j++)
+		{
+			islem=islem+j;
+			j++;
+		}
+		
+		return islem;
+	}
+int üç(int x)
+{
+	int carpim=1;
+	for (int k = 1; k <=x; k++)
+	{
+	carpim=k*carpim;
+	}
+	return carpim;
+}
+
