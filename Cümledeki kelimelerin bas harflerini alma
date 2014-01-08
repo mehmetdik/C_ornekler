@@ -1,0 +1,40 @@
+//CUMLEDEKI KELIMELERIN BAS HARFLERINI ALMA
+#include <stdio.h>
+#include <string.h> //strlen fonksyonu burada tanimli
+#include <windows.h> //toupper fonksyonu burada tanimli
+void kisaltma(char *);
+void main ()
+{
+	char cumle[100],*cumleptr; //Fonksyona array gondermek icin pointer tanimladim
+	cumleptr=&cumle[0];
+	do
+	{
+		_flushall(); //gets_s fonksyonunun duzgun calismasi icin bellek temizler
+		printf("Cumle giriniz: "); //Kelimeler arasi tek bosluk olmali
+		gets_s(cumle);
+		if(strlen(cumle)==0) //strlen fonksyonu stringteki karakter sayisini bulur
+			break;
+		printf("Kisaltmasi: ");
+		kisaltma(cumleptr);
+		printf("\n");
+	}
+	while(1); 
+}
+void kisaltma(char *cumleptr)
+{
+	int karakter, i=0, j=0, tutma; //karakter karagter degisgeni icin i,j dongulerde tutma  deger tutmak icin
+	char kis[6];
+	karakter=strlen(cumleptr); 
+	kis[0]=toupper(cumleptr[0]); //cumlenin ilk karakteri buyuk yapilir ve kisalma char' ina aktarilir.
+	for(i=0;i<karakter;i++) 
+	{
+		if(cumleptr[i]==' ')
+		{          //Her kelime arasina gelindiginde kisaltma degisgenine bosluktan sonraki karakter buyuk olarak atanir.
+			j++;   //j ile for icinde bir nevi ikici bir dongu yapilir.
+			kis[j]=toupper(cumleptr[i+1]);
+		}
+	}
+	tutma=j; //kisi string'inin karakter sayisini tutmak icin
+	for(i=0;i<=tutma;i++) //kisi string'inin karakter sayisina kadar yan yana yazilmasi
+		printf("%c",kis[i]);
+}
