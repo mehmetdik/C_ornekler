@@ -1,0 +1,39 @@
+#include <stdio.h>
+
+int main(){
+
+	int basSay;
+	int i;
+
+	printf("Kac basamaki sayi gireceksiniz? " );
+	scanf("%d",&basSay);
+
+	int sayi;
+	int dizi[basSay];
+	int cntl = 1;
+
+	printf("Sayi giriniz:" );
+	scanf("%d",&sayi);
+
+	for (i = basSay-1; i >= 0; i--)
+	{
+		dizi[i] = sayi % 10;
+		sayi = sayi / 10;
+	}
+
+	for (i = 0; i <= basSay/2; i++)
+	{
+		if (dizi[i] != dizi[basSay-i-1])
+		{
+			cntl = 0;
+			break;
+		}
+	}
+
+	if(cntl == 0)	
+		printf("Sayi palindromik sayi degildir. \n");
+	else 
+		printf("Sayi palindromiktir.\n");
+
+	return 0;
+}
