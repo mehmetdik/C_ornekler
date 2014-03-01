@@ -1,0 +1,22 @@
+#include<stdio.h>
+void main()
+{
+	int reel,img,reel1,img1,toplam,toplam1;
+	
+	printf ("1.Sayinin reel kısmını giriniz:");
+	scanf("%d",&reel);
+	
+	
+	printf("1.Sayinin img kısmını giriniz:");
+	scanf("%d",&img);
+	
+	printf("2.Sayinin reel kısmını giriniz:");
+	scanf("%d",&reel1);
+	
+	printf("2.Sayinin img kısmını giriniz");
+	scanf("%d",&img1);
+	
+	toplam=reel+reel1;
+	toplam1=img+img1;
+	printf("(%d+%di)+(%d+%di)=%d+%di",reel,img,reel1,img1,toplam,toplam1);
+}
